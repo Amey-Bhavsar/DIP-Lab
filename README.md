@@ -17,7 +17,7 @@ This project implements core DIP algorithms (spatial filtering, edge detection, 
 ## Installation 
 
 \`\`\`bash
-git clone https://github.com/<your-username>/DIP-Lab.git
+git clone https://github.com/Amey-Bhavsar/DIP-Lab.git
 cd DIP-Lab
 python -m venv venv
 venv\Scripts\Activate.ps1  # Windows
