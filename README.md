@@ -23,11 +23,10 @@ python -m venv venv
 venv\Scripts\Activate.ps1  # Windows  
 pip install -r requirements.txt  
 \`\`\`
-ok hel
 ## Usage 
 
-\`\`\`bash
-streamlit run app.py
+\`\`\`bash  
+streamlit run app.py  
 \`\`\`
 
 ##  Project Structure
