@@ -11,31 +11,31 @@ uploaded_file = st.file_uploader("Upload an image" , type=["jpg" , "jpeg" , "png
 
 if uploaded_file is not None:
     st.image(uploaded_file, caption="Uploaded Image")
-    selected_filter = st.selectbox("Choose a filter", ["Mean Blur", "Median Blur" , "Gaussian Blur" , "Sharpen (Laplacian)" , "Sobel Edge Detection" , "Prewitt Edge Detection" , "Global Thresholding"])
+    selected_filter = st.sidebar.selectbox("Choose a filter", ["Mean Blur", "Median Blur" , "Gaussian Blur" , "Sharpen (Laplacian)" , "Sobel Edge Detection" , "Prewitt Edge Detection" , "Global Thresholding"])
     if selected_filter == "Mean Blur" or selected_filter == "Median Blur" or selected_filter == "Gaussian Blur":
-        kernel_size = st.slider("Specify kernel size" , 3 , 15 , 3 , 2)
+        kernel_size = st.sidebar.slider("Specify kernel size" , 3 , 15 , 3 , 2)
     if selected_filter == "Gaussian Blur" : 
-        sigma = st.slider("Sigma = " , 0.0 , 5.0 , 1.0 , 0.5)
+        sigma = st.sidebar.slider("Sigma = " , 0.0 , 5.0 , 1.0 , 0.5)
     if selected_filter == "Global Thresholding":
-        threshold = st.slider("Threshold" , 0 , 255 , 100 , 1)
-    if st.button("Apply Filter") :
+        threshold = st.sidebar.slider("Threshold" , 0 , 255 , 100 , 1)
+    if st.sidebar.button("Apply Filter") :
         file_bytes = np.frombuffer(uploaded_file.getvalue(), np.uint8)
         img = cv2.imdecode(file_bytes, cv2.IMREAD_GRAYSCALE)
-
-        if selected_filter == "Mean Blur":
-            result = mean_blur_filter(img, kernel_size)
-        elif selected_filter == "Median Blur":
-            result = median_filter(img, kernel_size)
-        elif selected_filter == "Gaussian Blur":
-            result = gaussian_blur_filter(img, kernel_size, sigma)
-        elif selected_filter == "Sharpen (Laplacian)":
-            result = laplacian_filter(img)
-        elif selected_filter == "Sobel Edge Detection":
-            result = sobel_edge_detection(img)
-        elif selected_filter == "Prewitt Edge Detection":
-            result = prewitt_edge_detection(img)
-        elif selected_filter == "Global Thresholding":
-            result = global_thresholding(img, threshold)
+        with st.spinner("Applying filter..."):
+            if selected_filter == "Mean Blur":
+                result = mean_blur_filter(img, kernel_size)
+            elif selected_filter == "Median Blur":
+                result = median_filter(img, kernel_size)
+            elif selected_filter == "Gaussian Blur":
+                result = gaussian_blur_filter(img, kernel_size, sigma)
+            elif selected_filter == "Sharpen (Laplacian)":
+                result = laplacian_filter(img)
+            elif selected_filter == "Sobel Edge Detection":
+                result = sobel_edge_detection(img)
+            elif selected_filter == "Prewitt Edge Detection":
+                result = prewitt_edge_detection(img)
+            elif selected_filter == "Global Thresholding":
+                result = global_thresholding(img, threshold)
         
 
         col1, col2 = st.columns(2)
