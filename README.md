@@ -39,4 +39,3 @@ DIP-LAB/
 ├── requirements.txt      # Project dependencies  
 └── test1.py              # Test script  
 
-## LICENSE
