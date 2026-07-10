@@ -12,17 +12,9 @@ This project implements core DIP algorithms (spatial filtering, edge detection, 
 - [ ] Edge detection
 - [ ] Image restoration
 - [ ] Image segmentation 
-- [ ] Inteeactive Streamlit UI
+- [ ] Interactive Streamlit UI
 
-## Installation 
 
-\`\`\`bash  
-git clone https://github.com/Amey-Bhavsar/DIP-Lab.git  
-cd DIP-Lab  
-python -m venv venv  
-venv\Scripts\Activate.ps1  # Windows  
-pip install -r requirements.txt  
-\`\`\`
 ## Usage 
 
 \`\`\`bash  
@@ -30,5 +22,21 @@ streamlit run app.py
 \`\`\`
 
 ##  Project Structure
+DIP-LAB/
+├── algorithms/           # Core image processing logic
+│   ├── __init__.py
+│   ├── edge_detection.py
+│   ├── segmentation.py
+│   └── spatial.py
+├── examples/             # Usage examples and demonstrations
+├── tests/                # Test suites
+│   └── __init__.py
+├── utils/                # Helper functions and utilities
+├── venv/                 # Virtual environment
+├── .gitignore            # Git ignore file
+├── app.py                # Main application entry point
+├── README.md             # Project documentation
+├── requirements.txt      # Project dependencies
+└── test1.py              # Test script
 
 ## LICENSE
