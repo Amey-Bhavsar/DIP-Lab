@@ -22,21 +22,21 @@ streamlit run app.py
 \`\`\`
 
 ##  Project Structure
-DIP-LAB/
-├── algorithms/           # Core image processing logic
-│   ├── __init__.py
-│   ├── edge_detection.py
-│   ├── segmentation.py
-│   └── spatial.py
-├── examples/             # Usage examples and demonstrations
-├── tests/                # Test suites
-│   └── __init__.py
-├── utils/                # Helper functions and utilities
-├── venv/                 # Virtual environment
-├── .gitignore            # Git ignore file
-├── app.py                # Main application entry point
-├── README.md             # Project documentation
-├── requirements.txt      # Project dependencies
-└── test1.py              # Test script
+DIP-LAB/    
+├── algorithms/           # Core image processing logic  
+│   ├── __init__.py    
+│   ├── edge_detection.py  
+│   ├── segmentation.py  
+│   └── spatial.py  
+├── examples/             # Usage examples and demonstrations  
+├── tests/                # Test suites  
+│   └── __init__.py  
+├── utils/                # Helper functions and utilities  
+├── venv/                 # Virtual environment  
+├── .gitignore            # Git ignore file  
+├── app.py                # Main application entry point  
+├── README.md             # Project documentation  
+├── requirements.txt      # Project dependencies  
+└── test1.py              # Test script  
 
 ## LICENSE
