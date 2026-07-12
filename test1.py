@@ -2,12 +2,23 @@ from  utils.image_io import load_image, save_image
 from algorithms.spatial import mean_blur_filter, median_filter, laplacian_filter, gaussian_blur_filter
 from algorithms.edge_detection import sobel_edge_detection , prewitt_edge_detection
 from algorithms.segmentation import global_thresholding
-img  = load_image("examples/test.jpg")
+from algorithms.color_utils import apply_to_color
 
-img_mean = mean_blur_filter(img , 5)
-img_median = median_filter(img , 5)
-img_gauss = gaussian_blur_filter(img , 5 , 1 )
-img_laplace = laplacian_filter(img)
+
+#img  = load_image("examples/test.jpg" )
+color_img = load_image("examples/test.jpg" , False)
+
+img_mean = apply_to_color(mean_blur_filter, color_img, 5)
+img_median = apply_to_color(median_filter, color_img, 5)
+img_gauss = apply_to_color(gaussian_blur_filter, color_img, 5 , 1)
+img_laplace = apply_to_color(laplacian_filter, color_img)
+#img_sobel_ed = apply_to_color(sobel_edge_detection, color_img)
+#img_prewitt_ed= apply_to_color(prewitt_edge_detection, color_img)
+#img_threshold = apply_to_color(global_thresholding, color_img, 100)
+#img_mean = mean_blur_filter(img , 5)
+#img_median = median_filter(img , 5)
+#img_gauss = gaussian_blur_filter(img , 5 , 1 )
+#img_laplace = laplacian_filter(img)
 img_sobel_ed = sobel_edge_detection(img)
 img_prewitt_ed = prewitt_edge_detection(img)
 img_threshold = global_thresholding(img , 100)
