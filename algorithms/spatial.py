@@ -53,25 +53,15 @@ def gaussian_blur_filter(img, kernel_size, sigma=1):
 
 def laplacian_filter(img):
     pad_size = 1
-    pd_img = np.pad(img , pad_size , "reflect")
-    output = np.zeros(img.shape)
-    kernel = np.array([[0 , -1 , 0] , [-1 , 4 , -1] , [0 , -1, 0]])
-    H , W = img.shape
+    pd_img = np.pad(img, pad_size, "reflect")
+    kernel = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
 
-    for i in range(H) : 
-        for j in range(W) :
-            I = i + pad_size
-            J = j + pad_size
-            laplacian_value = 0
-            for k in range(-pad_size, pad_size + 1):
-                for l in range(-pad_size, pad_size + 1):
-                    pixel_value = int(pd_img[I + k][J + l])
-                    weight = kernel[k + pad_size][l + pad_size]
-                    laplacian_value = laplacian_value + pixel_value * weight
-            
-            original_pixel = int(pd_img[I][J])
-            sharpened_value = original_pixel + laplacian_value
-            output[i][j] = np.clip(sharpened_value, 0, 255)
+    windows = np.lib.stride_tricks.sliding_window_view(pd_img, (3, 3))
+
+    laplacian_values = np.sum(windows * kernel, axis=(-2, -1))
+
+    sharpened = img.astype(np.int64) + laplacian_values
+    output = np.clip(sharpened, 0, 255)
 
     return output.astype(np.uint8)
     
