@@ -6,8 +6,8 @@ from algorithms.color_utils import apply_to_color
 
 
 #img  = load_image("examples/test.jpg" )
-color_img = load_image("examples/test.jpg" , False)
-img = load_image("examples/test.jpg")
+color_img = load_image("examples/test.png" , False)
+img = load_image("examples/test.png")
 
 img_mean = apply_to_color(mean_blur_filter, color_img, 5)
 img_median = apply_to_color(median_filter, color_img, 5)

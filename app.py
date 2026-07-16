@@ -7,13 +7,24 @@ from algorithms.segmentation import global_thresholding
 from algorithms.color_utils import apply_to_color
 
 st.title("DIP Lab")
+descriptions = {
+    "Mean Blur": "Averages each pixel with its neighbors to smooth the image and reduce noise.",
+    "Median Blur": "Replaces each pixel with the median of its neighborhood — great for removing salt-and-pepper noise while preserving edges.",
+    "Gaussian Blur": "Applies a weighted average based on a bell-curve distribution, giving smoother, more natural blurring than a simple mean.",
+    "Sharpen (Laplacian)": "Enhances edges by detecting rapid intensity changes and adding them back to the original image.",
+    "Sobel Edge Detection": "Detects edges by computing horizontal and vertical intensity gradients and combining their magnitude.",
+    "Prewitt Edge Detection": "Similar to Sobel, detects edges using horizontal and vertical gradient kernels with equal weighting.",
+    "Global Thresholding": "Converts the image to pure black and white by comparing every pixel against a fixed brightness threshold."
+}
 
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     st.image(uploaded_file, caption="Uploaded Image")
 
-    selected_filter = st.sidebar.selectbox("Choose a filter", ["Mean Blur", "Median Blur", "Gaussian Blur", "Sharpen (Laplacian)", "Sobel Edge Detection", "Prewitt Edge Detection", "Global Thresholding"])
+    selected_filter = st.sidebar.selectbox("Choose a filter", list(descriptions.keys()))
+
+    st.sidebar.markdown(f"**Description:** {descriptions[selected_filter]}")
 
     color_supported = selected_filter in ["Mean Blur", "Median Blur", "Gaussian Blur", "Sharpen (Laplacian)"]
 
