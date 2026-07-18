@@ -2,6 +2,9 @@
 
 A Python (algorithms) + Streamlit (UI/ UX) web app implementing Digital Image Processing from scratch using Numpy. 
 
+![Main UI](examples/screenshot_main.png)  
+![Filter Result](examples/screenshot_result.png)  
+
 ## Overview
 
 This project implements core DIP algorithms (spatial filtering, edge detection,  segmentation) without relying on high-level CV libraries for actual processing - OpenCV are used only for image I/O.
