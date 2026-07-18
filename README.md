@@ -29,7 +29,7 @@ DIP-LAB/
 │   ├── edge_detection.py  
 │   ├── segmentation.py  
 │   └── spatial.py    
-    └── color_utils.py 
+|    └── color_utils.py 
 ├── examples/             # Usage examples and demonstrations  
 ├── tests/                # Test suites  
 │   └── __init__.py  
