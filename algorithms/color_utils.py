@@ -1,6 +1,8 @@
 import numpy as np 
 
 def apply_to_color(func, img , *args):
+    if img.ndim != 3:
+        raise ValueError("apply_to_color expects a color image with shape (H, W, 3), but got a grayscale image.")
     R_channel = img[:,:,0]
     G_channel = img[: , : , 1]
     B_channel = img[:,: ,2]

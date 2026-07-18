@@ -4,21 +4,22 @@ A Python (algorithms) + Streamlit (UI/ UX) web app implementing Digital Image Pr
 
 ## Overview
 
-This project implements core DIP algorithms (spatial filtering, edge detection, restoration , segmentation) without relying on high-level CV libraries for actual processing - OpenCV are used only for image I/O.
+This project implements core DIP algorithms (spatial filtering, edge detection,  segmentation) without relying on high-level CV libraries for actual processing - OpenCV are used only for image I/O.
 
 ## Features 
 
-- [ ] Spatial domain operations 
-- [ ] Edge detection
-- [ ] Image restoration
-- [ ] Image segmentation 
-- [ ] Interactive Streamlit UI
+- [x] Spatial domain operations 
+- [x] Edge detection
+- [x] Image restoration
+- [x] Image segmentation 
+- [x] Color image support
+- [x] Interactive Streamlit UI
 
 
 ## Usage 
 
 \`\`\`bash  
-streamlit run app.py  
+ python -m streamlit run app.py     
 \`\`\`
 
 ##  Project Structure
@@ -27,7 +28,8 @@ DIP-LAB/
 │   ├── __init__.py    
 │   ├── edge_detection.py  
 │   ├── segmentation.py  
-│   └── spatial.py  
+│   └── spatial.py    
+    └── color_utils.py 
 ├── examples/             # Usage examples and demonstrations  
 ├── tests/                # Test suites  
 │   └── __init__.py  

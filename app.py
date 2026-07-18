@@ -47,6 +47,10 @@ if uploaded_file is not None:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         else:
             img = cv2.imdecode(file_bytes, cv2.IMREAD_GRAYSCALE)
+            
+        if img is None:
+            st.error("Could not read this file as an image. Please upload a valid JPG or PNG.")
+            st.stop()
 
         with st.spinner("Applying filter..."):
             if selected_filter == "Mean Blur":
