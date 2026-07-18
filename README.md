@@ -40,4 +40,3 @@ DIP-LAB/
 ├── README.md             # Project documentation  
 ├── requirements.txt      # Project dependencies  
 └── test1.py              # Test script  
-
