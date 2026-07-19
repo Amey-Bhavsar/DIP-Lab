@@ -67,6 +67,20 @@ if uploaded_file is not None:
                 result = prewitt_edge_detection(img)
             elif selected_filter == "Global Thresholding":
                 result = global_thresholding(img, threshold)
+            
+        if use_color:
+            encode_img = cv2.cvtColor(result, cv2.COLOR_RGB2BGR)
+        else:
+            encode_img = result
+        success, encode_image = cv2.imencode(".jpg", encode_img)
+
+        st.download_button(
+            label="Download Filtered Image",
+            data=encode_img.tobytes(),
+            file_name="filtered_image.jpg",
+            mime="image/jpeg"
+        )
+          
 
         col1, col2 = st.columns(2)
         with col1:
