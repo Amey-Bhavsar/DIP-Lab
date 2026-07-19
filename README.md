@@ -2,8 +2,8 @@
 
 A Python (algorithms) + Streamlit (UI/ UX) web app implementing Digital Image Processing from scratch using Numpy. 
 
-![Main UI](examples/screenshot_main.png)  
-![Filter Result](examples/screenshot_result.png)  
+![Main UI](examples/main.png)  
+![Filter Result](examples/result.png)  
 
 ## Overview
 
